@@ -43,5 +43,6 @@
   },
   "devDependencies": {
     "plop": "^3.1.2"
-  }
+  },
+  "type": "module"
 }
