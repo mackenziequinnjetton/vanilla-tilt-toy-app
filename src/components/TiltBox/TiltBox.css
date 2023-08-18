@@ -1,6 +1,9 @@
 #tilt-box {
+  width: 250px;
+  height: 250px;
+  background-color: greenyellow;
+  border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
 }
