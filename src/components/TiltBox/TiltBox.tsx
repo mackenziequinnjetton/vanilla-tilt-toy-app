@@ -1,8 +1,13 @@
+// import "./TiltBox.css";
+
 const TiltBox = () => {
   return (
     <>
-      TiltBox
+      <div id="tilt-box">
+        TiltBox
+      </div>
     </>
+    
   )
 };
 

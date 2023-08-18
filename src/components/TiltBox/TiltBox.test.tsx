@@ -5,6 +5,6 @@ import TiltBox from './TiltBox';
 
 test('renders TiltBox', () => {
   render(<TiltBox />);
-  const linkElement = screen.getByText(/TiltBox/i);
-  expect(linkElement).toBeInTheDocument();
+  const tiltBoxElement = screen.getByText(/TiltBox/i);
+  expect(tiltBoxElement).toBeInTheDocument();
 });
