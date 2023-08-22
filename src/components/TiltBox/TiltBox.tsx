@@ -7,12 +7,18 @@ const TiltBox = () => {
   const tiltBoxRef = useRef(null);
 
   useEffect(() => {
-    if (!tiltBoxRef.current) return;
+    const currentTiltBoxRef: any = tiltBoxRef.current;
+    if (!currentTiltBoxRef) return;
     
-    VanillaTilt.init(tiltBoxRef.current, {
+    VanillaTilt.init(currentTiltBoxRef, {
       max: 25,
       speed: 400
     });
+
+    return () => {
+      if (!currentTiltBoxRef) return;
+      currentTiltBoxRef.vanillaTilt.destroy();
+    }
   }, []);
 
   useEffect(() => {
