@@ -21,6 +21,7 @@ const TiltBox = () => {
     createTiltEventListener("tilt-box-angle", "angle");
     createTiltEventListener("tilt-box-percent-x", "percentageX");
     createTiltEventListener("tilt-box-percent-y", "percentageY");
+    createTiltEventListener("tilt-box-tilt-x", "tiltX");
   });
 
   const createTiltEventListener = (tiltDisplayElementId: string, tiltEventAttr: string) => {
@@ -28,7 +29,8 @@ const TiltBox = () => {
     const tiltDisplayElement = document.querySelector(`#${tiltDisplayElementId}`);
     if (!tiltBoxElement || !tiltDisplayElement) return;
     tiltBoxElement.addEventListener("tiltChange", (event: any) => {
-      tiltDisplayElement.textContent = `tilt: ${Math.round(event.detail[tiltEventAttr])}`;
+      tiltDisplayElement.textContent = `${tiltEventAttr}: `;
+      tiltDisplayElement.textContent += Math.round(event.detail[tiltEventAttr]);
     });
   };
 
@@ -37,8 +39,9 @@ const TiltBox = () => {
       <div id="tilt-box" ref={tiltBoxRef}>
         <ul>
           <li id="tilt-box-angle">angle:</li>
-          <li id="tilt-box-percent-x">percentX:</li>
-          <li id="tilt-box-percent-y">percentY:</li>
+          <li id="tilt-box-percent-x">percentageX:</li>
+          <li id="tilt-box-percent-y">percentageY:</li>
+          <li id="tilt-box-tilt-x">tiltX:</li>
         </ul>
         
       </div>
