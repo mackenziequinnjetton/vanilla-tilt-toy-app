@@ -7,17 +7,22 @@ test("the angle element renders", () => {
   expect(screen.getByText("angle:")).toBeInTheDocument();
 });
 
-test("the percentX element renders", () => {
+test("the percentageX element renders", () => {
   render(<TiltBox />);
-  expect(screen.getByText("percentX:")).toBeInTheDocument();
+  expect(screen.getByText("percentageX:")).toBeInTheDocument();
 });
 
-test("the percentY element renders", () => {
+test("the percentageY element renders", () => {
   render(<TiltBox />);
-  expect(screen.getByText("percentY:")).toBeInTheDocument();
+  expect(screen.getByText("percentageY:")).toBeInTheDocument();
 });
 
 test("the tiltX element renders", () => {
   render(<TiltBox />);
   expect(screen.getByText("tiltX:")).toBeInTheDocument();
+});
+
+test("the tiltY element renders", () => {
+  render(<TiltBox />);
+  expect(screen.getByText("tiltY:")).toBeInTheDocument();
 });

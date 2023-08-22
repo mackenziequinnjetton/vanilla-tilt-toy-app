@@ -22,6 +22,7 @@ const TiltBox = () => {
     createTiltEventListener("tilt-box-percent-x", "percentageX");
     createTiltEventListener("tilt-box-percent-y", "percentageY");
     createTiltEventListener("tilt-box-tilt-x", "tiltX");
+    createTiltEventListener("tilt-box-tilt-y", "tiltY");
   });
 
   const createTiltEventListener = (tiltDisplayElementId: string, tiltEventAttr: string) => {
@@ -42,6 +43,7 @@ const TiltBox = () => {
           <li id="tilt-box-percent-x">percentageX:</li>
           <li id="tilt-box-percent-y">percentageY:</li>
           <li id="tilt-box-tilt-x">tiltX:</li>
+          <li id="tilt-box-tilt-y">tiltY:</li>
         </ul>
         
       </div>
