@@ -15,24 +15,22 @@ const TiltBox = () => {
     });
   }, []);
 
-  // Update the angle value in the .tilt-box-angle li element
   useEffect(() => {
     if (!tiltBoxRef.current) return;
 
-    const tiltBoxElement = document.querySelector("#tilt-box");
-    const tiltBoxAngleElement = document.querySelector("#tilt-box-angle");
-    const tiltBoxPercentXElement = document.querySelector("#tilt-box-percent-x");
-
-    tiltBoxElement?.addEventListener("tiltChange", (event: any) => {
-      if (!tiltBoxAngleElement) return;
-      tiltBoxAngleElement.textContent = `angle: ${Math.round(event.detail.angle)}`;
-    });
-
-    tiltBoxElement?.addEventListener("tiltChange", (event: any) => {
-      if (!tiltBoxPercentXElement) return;
-      tiltBoxPercentXElement.textContent = `percentX: ${Math.round(event.detail.percentageX)}`;
-    });
+    createTiltEventListener("tilt-box-angle", "angle");
+    createTiltEventListener("tilt-box-percent-x", "percentageX");
+    createTiltEventListener("tilt-box-percent-y", "percentageY");
   });
+
+  const createTiltEventListener = (tiltDisplayElementId: string, tiltEventAttr: string) => {
+    const tiltBoxElement = document.querySelector("#tilt-box");
+    const tiltDisplayElement = document.querySelector(`#${tiltDisplayElementId}`);
+    if (!tiltBoxElement || !tiltDisplayElement) return;
+    tiltBoxElement.addEventListener("tiltChange", (event: any) => {
+      tiltDisplayElement.textContent = `tilt: ${Math.round(event.detail[tiltEventAttr])}`;
+    });
+  };
 
   return (
     <>
@@ -40,6 +38,7 @@ const TiltBox = () => {
         <ul>
           <li id="tilt-box-angle">angle:</li>
           <li id="tilt-box-percent-x">percentX:</li>
+          <li id="tilt-box-percent-y">percentY:</li>
         </ul>
         
       </div>

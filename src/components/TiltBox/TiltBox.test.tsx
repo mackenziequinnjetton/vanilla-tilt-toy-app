@@ -11,3 +11,8 @@ test("the percentX element renders", () => {
   render(<TiltBox />);
   expect(screen.getByText("percentX:")).toBeInTheDocument();
 });
+
+test("the percentY element renders", () => {
+  render(<TiltBox />);
+  expect(screen.getByText("percentY:")).toBeInTheDocument();
+});
